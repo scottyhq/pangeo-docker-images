@@ -1,10 +1,11 @@
 channels:
   - conda-forge
   - defaults
+envs_dirs:
+  - /srv/conda/envs
+pkgs_dirs:
+  - /srv/conda/pkgs
 channel_priority: strict
 show_channel_urls: true
-# NOTE: only works for `conda create -f`, not `conda env create -f`!
-#create_default_packages:
-#  - pangeo-dask=0.0.2
-#  - ipykernel
-#  - blas=*=openblas
+root_prefix: /srv/conda
+auto_activate_base: false
