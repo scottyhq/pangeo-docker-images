@@ -24,7 +24,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: base-image
-        tags: base-image:PR
+        tags: pangeo/base-image:PR
         outputs: type=docker,dest=/tmp/base-image.tar
 
     - name: Upload artifact
