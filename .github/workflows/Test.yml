@@ -62,11 +62,11 @@ jobs:
     - name: Build Only
       uses: docker/build-push-action@v3
       with:
-        context: ${{ env.IMAGE }}
+        context: ${{ matrix.IMAGE }}
         push: false
         load: true
         tags: |
-          ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:PR
+          ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:PR
         build-args: | 
           PANGEO_BASE_IMAGE_TAG=PR
 
