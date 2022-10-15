@@ -10,8 +10,8 @@ env:
   GITHUB_SHA: ${{ github.sha }}
   GITHUB_REF: ${{ github.ref }}
 
+jobs:
   matrix-build:
-    needs: base-image
     strategy:
       fail-fast: false
       matrix:
