@@ -30,6 +30,7 @@ jobs:
       with:
         context: base-image
         push: false
+        load: true
         tags: pangeo/base-image:PR
 
     - name: Build Only
