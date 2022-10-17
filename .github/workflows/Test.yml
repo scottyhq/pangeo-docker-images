@@ -30,7 +30,8 @@ jobs:
       with:
         context: base-image
         push: false
-        load: true
+        cache-to: type=gha, scope=${{ matrix.IMAGE }}
+        cache-from: type=gha, scope=${{ matrix.IMAGE }}
         tags: pangeo/base-image:PR
 
     - name: Build Only
@@ -38,7 +39,8 @@ jobs:
       with:
         context: ${{ matrix.IMAGE }}
         push: false
-        load: true
+        cache-to: type=gha, scope=${{ matrix.IMAGE }}
+        cache-from: type=gha, scope=${{ matrix.IMAGE }}
         tags: |
           ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:PR
         build-args: | 
