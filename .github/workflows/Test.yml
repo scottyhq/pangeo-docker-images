@@ -1,6 +1,10 @@
 # Any PR opened, build images and run tests
 name: Test
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -49,8 +53,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: ${{ matrix.IMAGE }}
-        pull: true
-        load: true
+        push: true
         tags: localhost:5000/${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:PR
         build-args: PANGEO_BASE_IMAGE_TAG=PR
         build-contexts: |
