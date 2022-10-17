@@ -44,6 +44,8 @@ jobs:
         context: base-image
         tags: localhost:5000/pangeo/base-image:PR
         push: true
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
 
     # - name: Pull base-image
     #   run:
