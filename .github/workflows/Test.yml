@@ -47,6 +47,8 @@ jobs:
         context: ${{ matrix.IMAGE }}
         tags: localhost:5000/${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:PR
         build-args: PANGEO_BASE_IMAGE_TAG=PR
+        build-contexts: |
+          pangeo/base-image:PR=localhost:5000/pangeo/base-image:PR
 
     - name: Report Image Size and Conda Packages
       run: |
