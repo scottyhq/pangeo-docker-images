@@ -41,10 +41,17 @@ jobs:
         tags: localhost:5000/pangeo/base-image:PR
         push: true
 
+    - name: Pull base-image
+      uses: docker/build-push-action@v3
+      run:
+        docker pull localhost:5000/pangeo/base-image:PR
+
     - name: Build Only
       uses: docker/build-push-action@v3
       with:
         context: ${{ matrix.IMAGE }}
+        pull: true
+        load: true
         tags: localhost:5000/${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:PR
         build-args: PANGEO_BASE_IMAGE_TAG=PR
         build-contexts: |
