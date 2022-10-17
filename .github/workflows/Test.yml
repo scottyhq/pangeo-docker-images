@@ -19,6 +19,7 @@ jobs:
     name: ${{ matrix.IMAGE }}
     runs-on: ubuntu-latest
     services:
+      # https://github.com/docker/build-push-action/blob/master/docs/advanced/local-registry.md#local-registry
       registry:
         image: registry:2
         ports:
@@ -30,21 +31,19 @@ jobs:
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
+      with:
+        driver-opts: network=host
     
     - name: Build base-image
       uses: docker/build-push-action@v3
       with:
         context: base-image
-        with:
-          driver-opts: network=host
-        tags: pangeo/base-image:PR
+        tags: localhost:5000/pangeo/base-image:PR
 
     - name: Build Only
       uses: docker/build-push-action@v3
       with:
         context: ${{ matrix.IMAGE }}
-        with:
-          driver-opts: network=host
         tags: |
           localhost:5000/${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:PR
         build-args: | 
