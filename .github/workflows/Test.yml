@@ -47,10 +47,6 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
-    # - name: Pull base-image
-    #   run:
-    #     docker pull localhost:5000/pangeo/base-image:PR
-
     - name: Build Only
       uses: docker/build-push-action@v3
       with:
