@@ -42,7 +42,6 @@ jobs:
         push: true
 
     - name: Pull base-image
-      uses: docker/build-push-action@v3
       run:
         docker pull localhost:5000/pangeo/base-image:PR
 
