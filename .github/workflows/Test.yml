@@ -34,12 +34,12 @@ jobs:
       with:
         driver-opts: network=host
     
-    # - name: Build base-image
-    #   uses: docker/build-push-action@v3
-    #   with:
-    #     context: base-image
-    #     tags: localhost:5000/pangeo/base-image:PR
-    #     push: true
+    - name: Build base-image
+      uses: docker/build-push-action@v3
+      with:
+        context: base-image
+        tags: localhost:5000/pangeo/base-image:PR
+        push: true
 
     # - name: Pull base-image
     #   run:
@@ -49,12 +49,12 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: ${{ matrix.IMAGE }}
-        #pull: true
+        pull: true
         load: true
         tags: localhost:5000/${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:PR
         build-args: PANGEO_BASE_IMAGE_TAG=PR
         build-contexts: |
-          pangeo/base-image:PR=./base-image
+          pangeo/base-image:PR=docker-image://localhost:5000/pangeo/base-image:PR
 
     - name: Report Image Size and Conda Packages
       run: |
