@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 15
     defaults:
       run:
-        shell: bash -l {0}
+        shell: bash -el {0}
 
     steps:
       - name: Checkout Repository
@@ -41,7 +41,7 @@ jobs:
             ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{hashFiles('environment-condalock.yml') }}
 
       - name: Setup Conda Environment with Mambaforge
-        uses: conda-incubator/setup-miniconda@v2
+        uses: conda-incubator/setup-miniconda@v2.1
         with:
            # Match base-image/Dockerfile version
            miniforge-version: latest
