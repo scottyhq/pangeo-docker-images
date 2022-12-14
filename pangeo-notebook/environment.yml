@@ -8,7 +8,7 @@ dependencies:
  - awscli
  - boto3
  - bottleneck
- - cartopy
+ - cartopy >= 0.20.0
  - cfgrib
  - ciso
  - dask-ml
@@ -59,8 +59,9 @@ dependencies:
  - pandas
  - panel
  - parcels
- - param
+ - param!=1.11.0
  - pop-tools
+ - prefect=0.15.13
  - pyarrow
  - pycamhd
  - pydap
@@ -75,7 +76,7 @@ dependencies:
  - rio-cogeo
  - rioxarray
 # - rise
- - s3fs
+ - s3fs>0.5
  - satpy
  - scikit-image
  - scikit-learn
