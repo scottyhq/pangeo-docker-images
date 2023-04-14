@@ -532,7 +532,7 @@ pysocks==1.7.1
 pyspectral==0.12.3
 pystac==1.7.2
 pystac-client==0.6.1
-pytest==7.3.0
+pytest==7.3.1
 python==3.10.8
 python-benedict==0.24.3
 python-blosc==1.10.6

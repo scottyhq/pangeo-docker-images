@@ -5978,14 +5978,14 @@ package:
     python: '>=3.8'
     tomli: '>=1.0.0'
   hash:
-    md5: 425ee1712dbbb194edf0997d46202405
-    sha256: 23c23a56db2c623d241e898999493e18c0ee97530700111a3adec7658cb6ce52
+    md5: 547c7de697ec99b494a28ddde185b5a4
+    sha256: 42f89db577266b9dc195d09189b92f3af3354fb50c98b1f996c580322dffa8b5
   manager: conda
   name: pytest
   optional: false
   platform: linux-64
-  url: https://conda.anaconda.org/conda-forge/noarch/pytest-7.3.0-pyhd8ed1ab_0.conda
-  version: 7.3.0
+  url: https://conda.anaconda.org/conda-forge/noarch/pytest-7.3.1-pyhd8ed1ab_0.conda
+  version: 7.3.1
 - category: main
   dependencies:
     greenlet: '!=0.4.17'
