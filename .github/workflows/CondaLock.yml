@@ -42,7 +42,7 @@ jobs:
             conda-lock lock -f environment.yml -p linux-64
           elif [ $MATRIX = "pangeo-notebook" ]; then
             conda-lock lock -f environment.yml -f ../base-notebook/environment.yml -p linux-64
-          else; 
+          else 
             conda-lock lock -f environment.yml -f ../pangeo-notebook/environment.yml -f ../base-notebook/environment.yml -p linux-64
           fi
           conda-lock render -k explicit
